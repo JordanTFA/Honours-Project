@@ -1,0 +1,310 @@
+package hon;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.text.BreakIterator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+public class Sngram {
+	
+	static String text = "";
+	static Boolean removeUnwanted;
+	static Boolean unigrams;
+	static Boolean bigrams;
+	static ArrayList<String> sentences;
+	static ArrayList<String> words;
+	
+	public static String corpus;
+	public static String sentenceToEvaluate;
+
+	private static InputStreamReader r;
+	private static FileInputStream s; 
+	private static BufferedReader br;
+	public static TreeMap <String, Double> unigramCounts = new TreeMap <String, Double> ();
+	public static TreeMap <String, TreeMap <String, Double>> bigramCounts = new TreeMap <String, TreeMap <String, Double>> ();
+
+	public static void main(String[] args) throws IOException {
+	
+		setCorpus("Romeo");	// Choose corpus
+		setSentenceToEvaluate("Hath wash’d thy sallow cheeks for Rosaline!");
+		
+		removeUnwanted = true;	// remove words listed in "Unwanted words.txt"
+		unigrams = true;		// Count unigrams
+		bigrams = true;		// Count bigrams
+		
+		text = readFile();
+		breakIntoSentences(text);
+		
+		double prob = calcProbability(getSentenceToEvaluate());
+		
+		System.out.println(prob);
+		
+	}
+	
+	// Read in the text file of the corpus
+	public static String readFile() throws IOException{
+		
+		s = new FileInputStream("src\\corpora\\" + getCorpus() + ".txt");
+		r = new InputStreamReader(s);
+		
+		int data = r.read();
+		
+		while(data != -1){
+			char c = (char) data;		
+			text += c;
+			data = r.read();			
+		}
+		
+		return text;
+	}
+	
+	// Break a sentence into words
+	public static ArrayList<String> breakIntoWords(String theSentence){
+		
+        String [] words;
+        ArrayList <String> theWords;
+        ArrayList <String> theWordsTidiedUp;
+        
+        words = theSentence.split(" "); // Separate into words
+        theWords = new ArrayList <String>(Arrays.asList(words));
+        theWordsTidiedUp = new ArrayList<String> ();
+        for(String word : theWords) {
+                        word = word.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+                        theWordsTidiedUp.add(word);
+        }
+		return theWordsTidiedUp;
+	}
+	
+	
+	public static void breakIntoSentences(String para) throws IOException{
+		
+        String theSentence = "";
+        ArrayList<String> words = new ArrayList<String>();
+        
+        BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.UK);
+
+        iterator.setText(para);
+        int start = iterator.first();
+        
+        for(int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next()){
+        	theSentence = para.substring(start, end);
+        	theSentence = theSentence.replaceAll("\n", " ");
+        	theSentence = theSentence.replaceAll("[^A-Za-z0-9 ]", "");
+        	theSentence = theSentence.replaceAll("\\s+", " ");
+
+            words = breakIntoWords(theSentence);  //separate into words
+            
+    		if(removeUnwanted){
+    			words = removeUnwantedWords(words);
+    		}
+        	
+    		// if unigrams = true
+    		if(unigrams){
+    			calcUnigrams(words);
+    		}		
+    		
+    		// if bigrams = true
+    		if(bigrams){
+    			calcBigrams(words);
+    		}
+        }
+        
+        // Display counts to console
+        writeToFile();
+        // writeBigramsToFile();
+		
+	}
+
+	public static void calcUnigrams(ArrayList<String> words){
+		
+	    for (String s : words) {
+	        if (unigramCounts.containsKey(s)) {
+	        	unigramCounts.put(s, unigramCounts.get(s) + 1);
+	        } else {
+	            unigramCounts.put(s, 1.0);
+	        }
+	    }
+	}
+	
+	public static void calcBigrams(ArrayList<String> words){
+				
+		String word1;
+		String otherWord;
+		TreeMap <String, Double> newEntry;
+		TreeMap <String, Double> oldEntry;
+	
+		for(int i = 0; i < words.size(); i++) {
+			word1 = words.get(i);
+			for(int j = i + 1; j < words.size(); j++) {
+				otherWord = words.get(j);	
+				//System.out.println(word1 + " " +otherWord);
+				if(bigramCounts.containsKey(word1)) {
+					// Key found
+					// Get inner map 
+					oldEntry = bigramCounts.get(word1);
+					if(oldEntry.containsKey(otherWord)) {
+						// Bigram already exists
+						// Update count
+						oldEntry.put(otherWord, oldEntry.get(otherWord) + 1);
+						//System.out.println("Bigram exists " +word1 + " " +otherWord +" updating count to " +oldEntry.get(otherWord));
+					} else {
+						// Bigram doesn't exist
+						oldEntry.put(otherWord, 1.0);
+						//System.out.println("Key exists - new branch " +word1 + " " +otherWord);
+					}
+					
+				} else {
+					// Key not found - make new entry
+					newEntry = new TreeMap <String, Double> ();
+					newEntry.put(otherWord, 1.0);
+					bigramCounts.put(word1, newEntry);
+					//System.out.println("New key - adding " +word1 + " " +otherWord);
+					
+				}
+			}			
+		}
+	}
+
+	public static ArrayList<String> removeUnwantedWords(ArrayList<String> words) throws IOException{
+		
+		br = new BufferedReader(new FileReader("src\\res\\Unwanted words.txt"));
+		
+	    String line;
+	    
+	    
+	    while ((line = br.readLine()) != null) {
+
+	    	for(int i = 0; i < words.size(); i++){
+	    		
+	    		if(words.get(i).equals(line)){
+	    			words.remove(i);
+	    		}
+	    	}
+	    }
+		
+		return words;
+	}
+	
+	public static void writeToFile() throws IOException{
+		
+		FileOutputStream s;
+		OutputStreamWriter w;		
+		BufferedWriter bw;
+
+		System.out.print("Writing...");
+
+		if(unigrams){
+			
+			s  = new FileOutputStream("src\\unigrams\\" + getCorpus() + ".txt", false);
+			w = new OutputStreamWriter(s);
+			bw = new BufferedWriter(w);
+			
+			for(Entry<String, Double> entry : unigramCounts.entrySet()){
+		    	
+		    	String key = entry.getKey();
+		        Double value = entry.getValue();
+		        
+		        String line = key + "\t" + value;
+				bw.write(line);
+				bw.newLine();
+		        
+		    }
+
+			bw.close();
+		}
+		
+		if(bigrams){
+			
+			s  = new FileOutputStream("src\\bigrams\\" + getCorpus() + ".txt", false);
+			w = new OutputStreamWriter(s);
+			bw = new BufferedWriter(w);
+					
+			for(Entry<String, TreeMap<String, Double>> outer : bigramCounts.entrySet()){
+
+		    	String key = outer.getKey();
+		    	
+		    	for(Entry<String,Double> inner : outer.getValue().entrySet()){
+		    		double occurrences = calcTotal(outer.getKey(), inner.getKey(), inner.getValue());
+		    		String line = key + " " + inner.getKey() + " " + inner.getValue() + " (" + occurrences + ")" ;
+				    bw.write(line);
+					bw.newLine();
+		    	}
+		    	
+		    	bw.newLine();
+		    }
+			bw.close();
+			
+		}
+		
+		System.out.println("Done");
+	}
+	
+	public static double calcTotal(String inWord, String outWord, double occurrences){
+		
+		//System.out.println(inWord + " " + outWord);
+		
+		if(!inWord.equals(outWord)){
+			for(Entry<String, TreeMap<String, Double>> outer : bigramCounts.entrySet()){
+				
+		    	if(outer.getKey().equals(outWord)){
+			    	for(Entry<String,Double> inner : outer.getValue().entrySet()){
+			    		
+			    		if(inner.getKey().equals(inWord)){
+			    			occurrences += inner.getValue();
+			    		}
+			    	}	
+		    	}
+		    }	
+		}
+
+		return occurrences;
+	}
+	
+	public static double calcProbability(String theSentence){
+		
+		ArrayList<String> theBigram = new ArrayList<String>();
+		ArrayList<String> words = new ArrayList<String>();
+		
+		words = breakIntoWords(theSentence);
+		
+		double occ = 0;
+		
+		for(int i = 0; i < words.size(); i++){
+			
+			for(int j = i+1; j < words.size(); j++){
+				occ += (calcTotal(words.get(i),words.get(j),0) + (calcTotal(words.get(j),words.get(i),0)));
+				
+				System.out.println(words.get(i) + " " + words.get(j) + " " + occ);
+			}
+		}
+		return occ / words.size();
+	}
+	
+	
+	public static String getCorpus() {
+		return corpus;
+	}
+
+	public static void setCorpus(String corpus) {
+		Sngram.corpus = corpus;
+	}
+	
+	public static String getSentenceToEvaluate() {
+		return sentenceToEvaluate;
+	}
+
+	public static void setSentenceToEvaluate(String sentenceToEvaluate) {
+		Sngram.sentenceToEvaluate = sentenceToEvaluate;
+	}
+
+}

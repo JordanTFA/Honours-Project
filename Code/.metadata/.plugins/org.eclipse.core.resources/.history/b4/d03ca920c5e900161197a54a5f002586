@@ -1,0 +1,72 @@
+package countocc;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.TreeMap;
+
+public class Count {
+	
+	static String[] words;
+	static String paragraph;
+	private static InputStreamReader r;
+	private static FileInputStream s; 
+
+	public static void main(String[] args) throws IOException {
+
+		TreeMap<Integer, String> map = new TreeMap<Integer,String>();
+		
+		map.put(1, "one");
+		
+		if(map.containsKey(1))
+		
+		/*paragraph = readFile();
+		words = splitIntoWords(paragraph);
+		countOcc(words);
+		replaceWords(words);*/
+		
+
+	}
+	
+	public static String readFile() throws IOException{
+		
+		s = new FileInputStream("src\\Corpus.txt");
+		r = new InputStreamReader(s);
+		
+		int data = r.read();
+		String paragraph = "";
+		
+		while(data != -1){
+			char c = (char) data;		
+			paragraph += c;
+			data = r.read();			
+		}
+		return paragraph;
+	}
+
+	public static String[] splitIntoWords(String paragraph){
+		
+		words = paragraph.split("\\s+");
+		for(int i = 0; i < words.length; i++){
+			words[i] = words[i].replaceAll("[^\\w]", "");
+		}
+		
+		return words;
+	}
+	
+	public static void countOcc(String[] words){
+		String wordToCount = "am";
+	}
+	
+	public static void replaceWords(String[] words){
+		
+		String wordToReplace = "Sam";
+		
+		for(int i = 0; i < words.length; i++){
+			words[i] = words[i].replaceAll(wordToReplace, "");
+			
+			System.out.print(words[i] + " ");
+		}
+		
+	}
+}

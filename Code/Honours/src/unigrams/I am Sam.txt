@@ -1,0 +1,10 @@
+am	2.0
+and	1.0
+do	1.0
+eggs	1.0
+green	1.0
+ham	1.0
+i	3.0
+like	1.0
+not	1.0
+sam	2.0
