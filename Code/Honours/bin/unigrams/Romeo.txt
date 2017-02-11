@@ -41,6 +41,7 @@
 7	1.0
 8	1.0
 9	1.0
+a	466.0
 abate	1.0
 abbey	1.0
 abed	1.0
@@ -50,6 +51,7 @@ able	2.0
 ableeding	1.0
 aboard	1.0
 aboundst	1.0
+about	11.0
 above	14.0
 abraham	7.0
 abroach	1.0
@@ -106,6 +108,7 @@ affright	1.0
 afire	1.0
 afore	3.0
 afraid	1.0
+after	5.0
 afternoon	3.0
 again	27.0
 against	10.0
@@ -138,6 +141,8 @@ along	4.0
 aloof	3.0
 aloud	2.0
 already	5.0
+although	1.0
+am	59.0
 amazed	2.0
 ambiguities	1.0
 ambling	1.0
@@ -147,9 +152,11 @@ amended	1.0
 amerce	1.0
 among	6.0
 amorous	2.0
+an	81.0
 anatomy	1.0
 ancestors	1.0
 ancient	9.0
+and	761.0
 andgodden	1.0
 andtis	1.0
 angel	1.0
@@ -182,6 +189,7 @@ april	1.0
 apt	3.0
 aqua	2.0
 arbitrating	1.0
+are	68.0
 argues	1.0
 argument	1.0
 arise	3.0
@@ -196,6 +204,7 @@ arrives	1.0
 arrow	1.0
 art	54.0
 artificial	1.0
+as	156.0
 ascend	1.0
 ashamed	1.0
 ashes	2.0
@@ -213,6 +222,7 @@ associate	1.0
 assure	1.0
 ast	1.0
 asunder	1.0
+at	70.0
 athwart	1.0
 atomies	1.0
 attach	1.0
@@ -267,6 +277,7 @@ battlements	1.0
 bauble	1.0
 bawd	3.0
 bawdy	1.0
+be	208.0
 beams	2.0
 bear	12.0
 beard	1.0
@@ -283,13 +294,16 @@ beautiful	1.0
 beautify	1.0
 beauty	11.0
 beautys	2.0
+because	10.0
 becomed	1.0
 becomes	1.0
 bed	22.0
 bedaubd	1.0
 bedeck	1.0
+been	20.0
 beetle	1.0
 befits	1.0
+before	20.0
 beg	4.0
 began	2.0
 beggarly	1.0
@@ -475,6 +489,7 @@ burying	1.0
 busied	1.0
 business	3.0
 busy	1.0
+but	182.0
 butcher	1.0
 button	1.0
 buttshaft	1.0
@@ -1075,6 +1090,7 @@ esteem	1.0
 et	1.0
 eternal	1.0
 ethiopes	1.0
+even	12.0
 evening	1.0
 ever	12.0
 everlasting	2.0
@@ -1244,6 +1260,7 @@ fool	6.0
 foolish	2.0
 fools	3.0
 foot	9.0
+for	223.0
 forbear	2.0
 forbid	2.0
 forbidden	1.0
@@ -1427,6 +1444,7 @@ guilty	2.0
 gun	1.0
 gyves	1.0
 ha	6.0
+had	20.0
 hadst	6.0
 hag	1.0
 hai	1.0
@@ -1606,6 +1624,7 @@ i	589.0
 idle	1.0
 idles	1.0
 idolatry	1.0
+if	82.0
 ignorance	1.0
 ii	15.0
 iii	58.0
@@ -1622,6 +1641,7 @@ impeach	1.0
 import	2.0
 importuned	1.0
 impute	1.0
+in	323.0
 inauspicious	1.0
 inch	1.0
 inconstant	3.0
@@ -1649,16 +1669,18 @@ interchanging	1.0
 interest	1.0
 interrd	1.0
 interrupt	1.0
+into	9.0
 intrusion	1.0
 inundation	1.0
 invite	1.0
 invited	1.0
 invocation	1.0
 iron	4.0
+is	345.0
 issue	1.0
 issuing	1.0
 ist	5.0
-it	1.0
+it	226.0
 italy	1.0
 itch	1.0
 ithere	1.0
@@ -2178,6 +2200,7 @@ nobly	1.0
 noise	8.0
 none	15.0
 noon	1.0
+nor	20.0
 north	1.0
 nose	2.0
 noses	1.0
@@ -2212,7 +2235,7 @@ odds	1.0
 oer	11.0
 oercoverd	1.0
 oerperch	1.0
-of	1.0
+of	395.0
 off	10.0
 offence	1.0
 offer	2.0
@@ -2224,6 +2247,8 @@ often	2.0
 old	28.0
 older	1.0
 omit	1.0
+on	77.0
+once	10.0
 one	59.0
 ones	1.0
 only	9.0
@@ -2238,6 +2263,7 @@ opposite	1.0
 opposition	1.0
 oppress	1.0
 oppression	3.0
+or	67.0
 orb	1.0
 orchard	7.0
 ordained	1.0
@@ -2866,6 +2892,7 @@ simpleness	1.0
 simples	1.0
 sin	12.0
 sinabsolver	1.0
+since	11.0
 sing	2.0
 singer	1.0
 singing	1.0
@@ -2926,6 +2953,7 @@ smooth	2.0
 snatching	1.0
 snow	1.0
 snowy	1.0
+so	145.0
 soar	2.0
 sobersuited	1.0
 sociable	1.0
@@ -3209,7 +3237,9 @@ thank	6.0
 thankful	2.0
 thankings	1.0
 thanks	3.0
+that	344.0
 thats	8.0
+the	682.0
 thee	139.0
 their	47.0
 theirs	1.0
@@ -3247,6 +3277,7 @@ thither	4.0
 thorn	1.0
 those	16.0
 thou	276.0
+though	11.0
 thought	8.0
 thoughts	3.0
 thous	1.0
@@ -3281,6 +3312,7 @@ tide	1.0
 tidings	3.0
 ties	1.0
 tigers	1.0
+till	22.0
 tilts	1.0
 time	34.0
 timeless	1.0
@@ -3291,7 +3323,7 @@ tis	37.0
 titans	1.0
 tithepigs	1.0
 title	1.0
-to	1.0
+to	540.0
 toad	3.0
 today	3.0
 toes	1.0
@@ -3304,6 +3336,7 @@ tomorrow	15.0
 tongue	10.0
 tongues	2.0
 tonight	15.0
+too	57.0
 took	5.0
 tool	1.0
 topgallant	1.0
@@ -3417,6 +3450,7 @@ unharmd	1.0
 universal	1.0
 unkind	1.0
 unknown	1.0
+unless	6.0
 unlookdfor	1.0
 unluckily	1.0
 unlucky	2.0
@@ -3543,6 +3577,7 @@ warning	1.0
 warns	1.0
 warrant	11.0
 wary	1.0
+was	48.0
 wash	2.0
 washd	3.0
 wast	6.0
@@ -3600,9 +3635,11 @@ were	37.0
 wert	3.0
 west	1.0
 westward	1.0
+what	164.0
 whateer	1.0
 whats	9.0
 wheels	1.0
+when	53.0
 whence	2.0
 where	51.0
 wherefore	5.0
@@ -3611,6 +3648,7 @@ whereon	1.0
 wheres	6.0
 whereto	1.0
 which	60.0
+while	7.0
 whining	1.0
 whip	2.0
 whippd	1.0
@@ -3734,6 +3772,7 @@ years	12.0
 yellow	1.0
 yes	2.0
 yesternight	1.0
+yet	47.0
 yewtree	1.0
 yewtrees	1.0
 yielding	1.0

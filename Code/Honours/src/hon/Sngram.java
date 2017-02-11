@@ -35,7 +35,7 @@ public class Sngram {
 
 	public static void main(String[] args) throws IOException {
 	
-		setCorpus("Romeo");	// Choose corpus
+		setCorpus("I am Sam");	// Choose corpus
 		setSentenceToEvaluate("The wizard was at Hogwarts.");
 		
 		removeUnwanted = false;	// remove words listed in "Unwanted words.txt"
@@ -275,7 +275,6 @@ public class Sngram {
 	// Evalulate the probability of the sentence and assign a value
 	public static double calcProbability(String theSentence){
 		
-		ArrayList<String> theBigram = new ArrayList<String>();
 		ArrayList<String> words = new ArrayList<String>();
 		
 		words = breakIntoWords(theSentence);
