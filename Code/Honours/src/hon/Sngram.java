@@ -85,7 +85,7 @@ public class Sngram {
 		return theWordsTidiedUp;
 	}
 	
-	
+	// Break a text into sentences
 	public static void breakIntoSentences(String para) throws IOException{
 		
         String theSentence = "";
@@ -124,6 +124,7 @@ public class Sngram {
 		
 	}
 
+	// Calculate the unigrams (Occurrences of each word)
 	public static void calcUnigrams(ArrayList<String> words){
 		
 	    for (String s : words) {
@@ -135,6 +136,7 @@ public class Sngram {
 	    }
 	}
 	
+	// Calculate bigrams
 	public static void calcBigrams(ArrayList<String> words){
 				
 		String word1;
@@ -174,6 +176,7 @@ public class Sngram {
 		}
 	}
 
+	// Remove unwanted words (using Unwanted words.txt
 	public static ArrayList<String> removeUnwantedWords(ArrayList<String> words) throws IOException{
 		
 		br = new BufferedReader(new FileReader("src\\res\\Unwanted words.txt"));
@@ -194,6 +197,7 @@ public class Sngram {
 		return words;
 	}
 	
+	// Write to a file since the console isn't big enough
 	public static void writeToFile() throws IOException{
 		
 		FileOutputStream s;
@@ -248,9 +252,8 @@ public class Sngram {
 		System.out.println("Done");
 	}
 	
+	// Add the inverse of a bigram to get an accurate number ("the man" is added to "man the")
 	public static double calcTotal(String inWord, String outWord, double occurrences){
-		
-		// System.out.println(inWord + " " + outWord);
 		
 		if(!inWord.equals(outWord)){
 			for(Entry<String, TreeMap<String, Double>> outer : bigramCounts.entrySet()){
@@ -269,6 +272,7 @@ public class Sngram {
 		return occurrences;
 	}
 	
+	// Evalulate the probability of the sentence and assign a value
 	public static double calcProbability(String theSentence){
 		
 		ArrayList<String> theBigram = new ArrayList<String>();
