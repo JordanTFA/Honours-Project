@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;hon.AnagramIdicators.java&apos; to &apos;AnagramIndicators.java&apos;&#x0D;&#x0A;- Original project: &apos;Honours&apos;&#x0D;&#x0A;- Original element: &apos;hon.AnagramIdicators.java&apos;&#x0D;&#x0A;- Renamed element: &apos;hon.AnagramIndicators.java&apos;" description="Rename compilation unit &apos;AnagramIdicators.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;hon{AnagramIdicators.java" name="AnagramIndicators.java" references="false" stamp="1487258236692" version="1.0"/>
+</session>

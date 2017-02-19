@@ -25,7 +25,6 @@ public class Sngram {
 	static ArrayList<String> words;
 	
 	public static String corpus;
-	public static String sentenceToEvaluate;
 
 	private static InputStreamReader r;
 	private static FileInputStream s; 
@@ -33,10 +32,13 @@ public class Sngram {
 	public static TreeMap <String, Double> unigramCounts = new TreeMap <String, Double> ();
 	public static TreeMap <String, TreeMap <String, Double>> bigramCounts = new TreeMap <String, TreeMap <String, Double>> ();
 
+	public static String clue;
+
 	public static void main(String[] args) throws IOException {
 	
-		setCorpus("I am Sam");	// Choose corpus
-		setSentenceToEvaluate("The wizard was at Hogwarts.");
+		setCorpus("Romeo");	// Choose corpus
+		setClue("meat is boring");
+		AnagramIndicators ai = new AnagramIndicators();
 		
 		removeUnwanted = false;	// remove words listed in "Unwanted words.txt"
 		unigrams = true;		// Count unigrams
@@ -45,9 +47,7 @@ public class Sngram {
 		text = readFile();
 		breakIntoSentences(text);
 		
-		double prob = calcProbability(getSentenceToEvaluate());
-		
-		System.out.println(prob);
+		AnagramIndicators.appendIndicator(getClue());
 		
 	}
 	
@@ -286,7 +286,7 @@ public class Sngram {
 			for(int j = i+1; j < words.size(); j++){
 				occ += (calcTotal(words.get(i),words.get(j),0) + (calcTotal(words.get(j),words.get(i),0)));
 				
-				System.out.println(words.get(i) + " " + words.get(j) + " " + occ);
+				//System.out.println(words.get(i) + " " + words.get(j) + " " + occ);
 			}
 		}
 		
@@ -304,12 +304,12 @@ public class Sngram {
 		Sngram.corpus = corpus;
 	}
 	
-	public static String getSentenceToEvaluate() {
-		return sentenceToEvaluate;
+	public static String getClue() {
+		return clue;
 	}
 
-	public static void setSentenceToEvaluate(String sentenceToEvaluate) {
-		Sngram.sentenceToEvaluate = sentenceToEvaluate;
+	public static void setClue(String clue) {
+		Sngram.clue = clue;
 	}
 
 }
