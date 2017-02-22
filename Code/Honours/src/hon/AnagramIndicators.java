@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeSet;
 
-import javax.lang.model.element.Element;
-
 /**
  * AnagramIndicators
  * @author      John Owens <j.owens@napier.ac.uk>
@@ -56,7 +54,7 @@ public class AnagramIndicators {
 		}
 		
 		for(RankedClue rc : allClues){
-			System.out.println(rc.getPerplexity() + " " + rc.getText());
+			System.out.println(rc.getProbability() + "\t" + rc.getText());
 		}
 		
 		

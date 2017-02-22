@@ -38,11 +38,12 @@ public class Sngram {
 	
 		setCorpus("Romeo");	// Choose corpus
 		setClue("meat is boring");
+		
 		AnagramIndicators ai = new AnagramIndicators();
 		
 		removeUnwanted = false;	// remove words listed in "Unwanted words.txt"
 		unigrams = true;		// Count unigrams
-		bigrams = true;		// Count bigrams
+		bigrams = true;			// Count bigrams
 		
 		text = readFile();
 		breakIntoSentences(text);

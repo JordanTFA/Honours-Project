@@ -2,19 +2,19 @@ package hon;
 
 public class RankedClue implements Comparable {
 	
-	private double perplexity;
+	private double probability;
 	private String text;
 	
-	public RankedClue(double perplexity, String text) {
-		setPerplexity(perplexity);
+	public RankedClue(double probability, String text) {
+		setProbability(probability);
 		setText(text);
 	}
 	
-	public double getPerplexity() {
-		return this.perplexity;
+	public double getProbability() {
+		return this.probability;
 	}
-	public void setPerplexity(double perplexity) {
-		this.perplexity = perplexity;
+	public void setProbability(double probability) {
+		this.probability = probability;
 	}
 	public String getText() {
 		return this.text;
@@ -27,10 +27,10 @@ public class RankedClue implements Comparable {
 		RankedClue theClue = (RankedClue) o;
 		
 		
-		if(this.perplexity < theClue.getPerplexity()) {
+		if(this.probability < theClue.getProbability()) {
 			return 1;
 		}
-		if(this.perplexity == theClue.getPerplexity()) {
+		if(this.probability == theClue.getProbability()) {
 			return -1;
 		}
 		return -1;
