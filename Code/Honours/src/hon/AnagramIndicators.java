@@ -84,13 +84,9 @@ public class AnagramIndicators {
 		indicators.add("adjustment");
 		indicators.add("adrift");
 		indicators.add("afresh");
-		indicators.add("after a fashion");
-		indicators.add("after refreshment");
 		indicators.add("agitated");
 		indicators.add("agitates");
 		indicators.add("alarmingly");
-		indicators.add("all at sea");
-		indicators.add("all over");
 		indicators.add("alter");
 		indicators.add("alteration");
 		indicators.add("altered");
@@ -100,7 +96,6 @@ public class AnagramIndicators {
 		indicators.add("amiss");
 		indicators.add("anew");
 		indicators.add("another");
-		indicators.add("another way");
 		indicators.add("anyhow");
 		indicators.add("apart");
 		indicators.add("around");
@@ -115,9 +110,6 @@ public class AnagramIndicators {
 		indicators.add("assorted");
 		indicators.add("assortment");
 		indicators.add("astray");
-		indicators.add("at odds");
-		indicators.add("at sea");
-		indicators.add("at sixes and sevens");
 		indicators.add("away");
 		indicators.add("awful");
 		indicators.add("awfully");
@@ -131,11 +123,9 @@ public class AnagramIndicators {
 		indicators.add("battered");
 		indicators.add("batty");
 		indicators.add("beaten");
-		indicators.add("beaten up");
 		indicators.add("become");
 		indicators.add("becomes");
 		indicators.add("becoming");
-		indicators.add("becoming upset");
 		indicators.add("bend");
 		indicators.add("bends");
 		indicators.add("bent");
@@ -162,9 +152,6 @@ public class AnagramIndicators {
 		indicators.add("burst");
 		indicators.add("bursting");
 		indicators.add("busy");
-		indicators.add("by arrangement");
-		indicators.add("by mistake");
-		indicators.add("can be");
 		indicators.add("careless");
 		indicators.add("carelessly");
 		indicators.add("cast");
@@ -172,7 +159,6 @@ public class AnagramIndicators {
 		indicators.add("cavort");
 		indicators.add("cavorting");
 		indicators.add("change");
-		indicators.add("change of");
 		indicators.add("changed");
 		indicators.add("changes");
 		indicators.add("changing");
@@ -181,7 +167,6 @@ public class AnagramIndicators {
 		indicators.add("characters");
 		indicators.add("chop");
 		indicators.add("chopped");
-		indicators.add("chopped up");
 		indicators.add("circulating");
 		indicators.add("cocktail");
 		indicators.add("collapse");
@@ -215,7 +200,6 @@ public class AnagramIndicators {
 		indicators.add("corrected");
 		indicators.add("corrupt");
 		indicators.add("corrupted");
-		indicators.add("could be");
 		indicators.add("crack");
 		indicators.add("cracked");
 		indicators.add("crackers");
@@ -247,7 +231,6 @@ public class AnagramIndicators {
 		indicators.add("deploy");
 		indicators.add("deployed");
 		indicators.add("derelict");
-		indicators.add("derived from");
 		indicators.add("design");
 		indicators.add("designed");
 		indicators.add("destroyed");
@@ -256,7 +239,6 @@ public class AnagramIndicators {
 		indicators.add("develop");
 		indicators.add("developed");
 		indicators.add("developing");
-		indicators.add("development of");
 		indicators.add("deviation");
 		indicators.add("devious");
 		indicators.add("dicky");
@@ -341,13 +323,10 @@ public class AnagramIndicators {
 		indicators.add("flurried");
 		indicators.add("foolish");
 		indicators.add("foolishly");
-		indicators.add("for a change");
-		indicators.add("for distribution");//??
 		indicators.add("forced");
 		indicators.add("forge");
 		indicators.add("forged");
 		indicators.add("form");
-		indicators.add("form of");
 		indicators.add("fractured");
 		indicators.add("fragmented");
 		indicators.add("fragments");
@@ -358,7 +337,6 @@ public class AnagramIndicators {
 		indicators.add("fresh");
 		indicators.add("freshly");
 		indicators.add("frolicking");
-		//indicators.add("from");
 		indicators.add("fudge");
 		indicators.add("funny");
 		indicators.add("gamboling");
@@ -366,21 +344,14 @@ public class AnagramIndicators {
 		indicators.add("gathered");
 		indicators.add("generating");
 		indicators.add("gets");
-		indicators.add("gets broken");
-		indicators.add("gets treatment");
-		indicators.add("getting involved");
-		indicators.add("getting upset");
 		indicators.add("gibberish");
 		indicators.add("grotesque");
 		indicators.add("ground");
 		indicators.add("haphazard");
 		indicators.add("Harry");
-		indicators.add("has been ordered");
 		indicators.add("hash");
 		indicators.add("haywire");
 		indicators.add("hectic");
-		//indicators.add("hide");
-		//indicators.add("hiding");
 		indicators.add("higgeldy-piggeldy");
 		indicators.add("ill");
 		indicators.add("ill-disposed");
@@ -388,40 +359,18 @@ public class AnagramIndicators {
 		indicators.add("ill-treated");
 		indicators.add("improper");
 		indicators.add("improperley");
-		indicators.add("in a ferment");
-		indicators.add("in a jumble");
-		indicators.add("in a mess");
-		indicators.add("in a storm");
-		indicators.add("in a whirl");
-		indicators.add("in chaos");
 		indicators.add("incorrect");
 		indicators.add("incorrectly");
-		indicators.add("in disarray");
-		indicators.add("in disguise");
-		indicators.add("in distress");
-		indicators.add("in error");
 		indicators.add("injured");
-		indicators.add("in trouble");
 		indicators.add("ingredients");
-		indicators.add("in order");
-		//indicators.add("in order to get");
-		indicators.add("in ruins");
-		indicators.add("interfered with");
-		indicators.add("in trouble");
 		indicators.add("involve");
 		indicators.add("involved");
-		indicators.add("is changing");//??
-		indicators.add("is complicated");//??
-		indicators.add("is in distress");//??
-		indicators.add("is ruined");//??
-		indicators.add("is transplanted");//??
 		indicators.add("irregular");
 		indicators.add("jittery");
 		indicators.add("joining");
 		indicators.add("juggled");
 		indicators.add("jumbled");
 		indicators.add("jumping");
-		indicators.add("kind of");
 		indicators.add("kinky");
 		indicators.add("knotted");
 		indicators.add("lawless");
@@ -432,11 +381,9 @@ public class AnagramIndicators {
 		indicators.add("lunatic");
 		indicators.add("mad");
 		indicators.add("made");
-		indicators.add("made up");
 		indicators.add("madly");
 		indicators.add("make");
 		indicators.add("makes");
-		indicators.add("make up");
 		indicators.add("making");
 		indicators.add("malformed");
 		indicators.add("malfunction");
@@ -448,14 +395,11 @@ public class AnagramIndicators {
 		indicators.add("mash");
 		indicators.add("massaged");
 		indicators.add("maybe");
-		indicators.add("may be");
-		indicators.add("may be ordered");
 		indicators.add("meandering");
 		indicators.add("medley");
 		indicators.add("melee");
 		indicators.add("mess");
 		indicators.add("messy");
-		indicators.add("might be");
 		indicators.add("minced");
 		indicators.add("mishandle");
 		indicators.add("misled");
@@ -467,7 +411,6 @@ public class AnagramIndicators {
 		indicators.add("mix");
 		indicators.add("mixed");
 		indicators.add("mixture");
-		indicators.add("mix up");
 		indicators.add("mobile");
 		indicators.add("modelled");
 		indicators.add("modified");
@@ -483,21 +426,13 @@ public class AnagramIndicators {
 		indicators.add("nasty");
 		indicators.add("naughty");
 		indicators.add("new");
-		indicators.add("new form");
 		indicators.add("newly");
-		indicators.add("new setting");
-		indicators.add("not in order");
-		indicators.add("not properly");
-		indicators.add("not right");
-		indicators.add("not straight");
-		indicators.add("not working");
 		indicators.add("novel");
 		indicators.add("nuts");
 		indicators.add("nutty");
 		indicators.add("odd");
 		indicators.add("oddly");
 		indicators.add("off");
-		indicators.add("off track");
 		indicators.add("order");
 		indicators.add("ordered");
 		indicators.add("orderley");
@@ -507,11 +442,6 @@ public class AnagramIndicators {
 		indicators.add("originally");
 		indicators.add("otherwise");
 		indicators.add("out");
-		indicators.add("out of");
-		indicators.add("out of joint");
-		indicators.add("out of order");
-		indicators.add("out of place");
-		indicators.add("out of sorts");
 		indicators.add("over");
 		indicators.add("pants");
 		indicators.add("parlous");
@@ -529,7 +459,6 @@ public class AnagramIndicators {
 		indicators.add("plastic");
 		indicators.add("played");
 		indicators.add("playing");
-		indicators.add("playing with");//??
 		indicators.add("playfully");
 		indicators.add("poor");
 		indicators.add("poorly");
@@ -544,9 +473,6 @@ public class AnagramIndicators {
 		indicators.add("produce");
 		indicators.add("producing");
 		indicators.add("pseudo");
-		indicators.add("put out");
-		indicators.add("put right");
-		indicators.add("put straight");
 		indicators.add("queer");
 		indicators.add("queerly");
 		indicators.add("questionable");
@@ -587,7 +513,6 @@ public class AnagramIndicators {
 		indicators.add("rioting");
 		indicators.add("riotous");
 		indicators.add("roaming");
-		indicators.add("roaming wild");
 		indicators.add("rock");
 		indicators.add("rocks");
 		indicators.add("rocking");
@@ -598,7 +523,6 @@ public class AnagramIndicators {
 		indicators.add("round");
 		indicators.add("ruin");
 		indicators.add("ruined");
-		indicators.add("ruined by");
 		indicators.add("ruinous");
 		indicators.add("rum");
 		indicators.add("run");
@@ -612,8 +536,6 @@ public class AnagramIndicators {
 		indicators.add("scatty");
 		indicators.add("scrambled");
 		indicators.add("scrambling");
-		indicators.add("set off");
-		indicators.add("set out");
 		indicators.add("shake");
 		indicators.add("shaken");
 		indicators.add("shaking");
@@ -637,9 +559,6 @@ public class AnagramIndicators {
 		indicators.add("some");
 		indicators.add("somehow");
 		indicators.add("sort");
-		indicators.add("sorted out");
-		indicators.add("sort of");
-		indicators.add("sort out");
 		indicators.add("spill");
 		indicators.add("spilled");
 		indicators.add("spilt");
@@ -669,24 +588,17 @@ public class AnagramIndicators {
 		indicators.add("swings");
 		indicators.add("swirl");
 		indicators.add("swirling");
-		indicators.add("swirling around");
 		indicators.add("switch");
 		indicators.add("switched");
-		indicators.add("switched into");//??
-		indicators.add("taken round");
 		indicators.add("tangled");
 		indicators.add("tattered");
 		indicators.add("terrible");
 		indicators.add("terribly");
-		indicators.add("that's different");
-		indicators.add("that could be");
 		indicators.add("tidied");
 		indicators.add("tipsy");
-		indicators.add("to confuse");
 		indicators.add("torn");
 		indicators.add("tortuous");
 		indicators.add("torturing");
-		//indicators.add("train");
 		indicators.add("trained");
 		indicators.add("training");
 		indicators.add("transform");
@@ -753,11 +665,9 @@ public class AnagramIndicators {
 		indicators.add("weave");
 		indicators.add("weaving");
 		indicators.add("weird");
-		indicators.add("went off");
 		indicators.add("wild");
 		indicators.add("wilder");
 		indicators.add("wildly");
-		indicators.add("with arrangement");
 		indicators.add("wobbles");
 		indicators.add("worked");
 		indicators.add("working");
@@ -771,6 +681,4 @@ public class AnagramIndicators {
 		indicators.add("wounded");
 		
 	}
-	
-	
 }

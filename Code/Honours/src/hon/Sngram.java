@@ -18,9 +18,12 @@ import java.util.TreeMap;
 public class Sngram {
 	
 	static String text = "";
+	
 	static Boolean removeUnwanted;
 	static Boolean unigrams;
 	static Boolean bigrams;
+	static Boolean removeWordsFromClue;
+	
 	static ArrayList<String> sentences;
 	static ArrayList<String> words;
 	
@@ -33,21 +36,26 @@ public class Sngram {
 	public static TreeMap <String, TreeMap <String, Double>> bigramCounts = new TreeMap <String, TreeMap <String, Double>> ();
 
 	public static String clue;
+	public static String fixedClue = "";
 
 	public static void main(String[] args) throws IOException {
 	
 		setCorpus("Romeo");	// Choose corpus
-		setClue("meat is boring");
+		setClue("health resorts to pass");
 		
 		AnagramIndicators ai = new AnagramIndicators();
 		
-		removeUnwanted = false;	// remove words listed in "Unwanted words.txt"
-		unigrams = true;		// Count unigrams
-		bigrams = true;			// Count bigrams
+		removeUnwanted = false;			// remove words listed in "Unwanted words.txt"
+		unigrams = true;				// Count unigrams
+		bigrams = true;					// Count bigrams
+		removeWordsFromClue = false;	// Remove words listed in "Unwanted words.txt" from the clue
 		
 		text = readFile();
 		breakIntoSentences(text);
 		
+		if(removeWordsFromClue){
+			fixClue(getClue());
+		}
 		AnagramIndicators.appendIndicator(getClue());
 		
 	}
@@ -196,6 +204,23 @@ public class Sngram {
 	    }
 		
 		return words;
+	}
+	
+	public static void fixClue(String theClue) throws IOException{
+		ArrayList<String> clueInWords = new ArrayList<String>();
+		clueInWords = breakIntoWords(getClue());
+		clueInWords = removeUnwantedWords(clueInWords);
+		
+		for(int i = 0; i < clueInWords.size(); i++){
+			
+			if(i != (clueInWords.size()-1)){
+				fixedClue += clueInWords.get(i) + " ";
+			}else{
+				fixedClue += clueInWords.get(i);
+			}
+		}
+		
+		setClue(fixedClue);
 	}
 	
 	// Write to a file since the console isn't big enough
