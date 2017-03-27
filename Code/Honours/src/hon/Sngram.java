@@ -9,8 +9,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.BreakIterator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -19,10 +22,9 @@ public class Sngram {
 	
 	static String text = "";
 	
-	static Boolean removeUnwanted;
 	static Boolean unigrams;
 	static Boolean bigrams;
-	static Boolean removeWordsFromClue;
+	static Boolean removeUnwanted;
 	
 	static ArrayList<String> sentences;
 	static ArrayList<String> words;
@@ -32,32 +34,53 @@ public class Sngram {
 	private static InputStreamReader r;
 	private static FileInputStream s; 
 	private static BufferedReader br;
+	
 	public static TreeMap <String, Double> unigramCounts = new TreeMap <String, Double> ();
 	public static TreeMap <String, TreeMap <String, Double>> bigramCounts = new TreeMap <String, TreeMap <String, Double>> ();
 
 	public static String clue;
 	public static String fixedClue = "";
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
+		
+		GUI.buildGUI();	
+	}
 	
-		setCorpus("Romeo");	// Choose corpus
-		setClue("health resorts to pass");
+	public static void prepareCorpus(Boolean b) throws IOException{
 		
-		AnagramIndicators ai = new AnagramIndicators();
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
+		System.out.println("Started at " + dateFormat.format(date));
 		
-		removeUnwanted = false;			// remove words listed in "Unwanted words.txt"
+		
 		unigrams = true;				// Count unigrams
 		bigrams = true;					// Count bigrams
-		removeWordsFromClue = false;	// Remove words listed in "Unwanted words.txt" from the clue
+		removeUnwanted = b;				
 		
 		text = readFile();
 		breakIntoSentences(text);
+
+	}
+	
+	public static void queryAnagram(Boolean removeWordsFromClue) throws IOException{
+		
 		
 		if(removeWordsFromClue){
-			fixClue(getClue());
+			fixClue(getClue());	
 		}
-		AnagramIndicators.appendIndicator(getClue());
 		
+		AnagramIndicators ai = new AnagramIndicators();
+		AnagramIndicators.appendIndicator(getClue());
+	}
+	
+	public static void queryDictionary(Boolean removeWordsFromClue, String letter) throws IOException{
+		
+		if(removeWordsFromClue){
+			fixClue(getClue());	
+		}
+		
+		Dictionary d = new Dictionary(letter);
+		Dictionary.appendWord(getClue());
 	}
 	
 	// Read in the text file of the corpus
@@ -230,8 +253,6 @@ public class Sngram {
 		OutputStreamWriter w;		
 		BufferedWriter bw;
 
-		System.out.print("Writing...");
-
 		if(unigrams){
 			
 			s  = new FileOutputStream("src\\unigrams\\" + getCorpus() + ".txt", false);
@@ -275,7 +296,11 @@ public class Sngram {
 			
 		}
 		
-		System.out.println("Done");
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
+
+		System.out.println(getCorpus() + " Loaded at " + dateFormat.format(date));
+		
 	}
 	
 	// Add the inverse of a bigram to get an accurate number ("the man" is added to "man the")

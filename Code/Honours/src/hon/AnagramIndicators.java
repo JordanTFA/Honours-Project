@@ -1,6 +1,9 @@
 package hon;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -42,7 +45,7 @@ public class AnagramIndicators {
 	
 	public static void appendIndicator(String clue){
 		
-		String clueWithIndicator;
+		String clueWithIndicator = "";
 		double prob;
 		for(String ti : indicators){
 			
@@ -56,6 +59,12 @@ public class AnagramIndicators {
 		for(RankedClue rc : allClues){
 			System.out.println(rc.getProbability() + "\t" + rc.getText());
 		}
+		
+		allClues.clear();
+		
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
+		System.out.println("Finished at " + dateFormat.format(date));
 		
 		
 	}
