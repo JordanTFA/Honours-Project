@@ -12,6 +12,7 @@ be
 because
 before
 been
+between
 but
 even
 for
@@ -42,5 +43,7 @@ when
 whenever
 wherever
 whether
+which
 while
 yet
+you

@@ -30,7 +30,7 @@ public class GUI {
 		
 		JPanel panel = new JPanel();	
 		frame.getContentPane().setLayout(null);
-		panel.setBounds(0, 0, 600, 400);
+		panel.setBounds(0, 0, 600, 250);
 		panel.setLayout(null);	
 		frame.getContentPane().add(panel);
 		
@@ -42,7 +42,6 @@ public class GUI {
 		JRadioButton rdoHarry = new JRadioButton("Harry Potter");
 		JRadioButton rdoRomeo = new JRadioButton("Romeo & Juliet");
 		JRadioButton rdoMyCorpus = new JRadioButton("My Corpus");
-		
 		
 		rdoSam.setSelected(true);
 		
@@ -76,16 +75,16 @@ public class GUI {
 		panel.add(chkRemoveFromClue);
 		
 		JLabel lblClueType = new JLabel("Clue Type:");
-		lblClueType.setBounds(400,10,150,30);
+		lblClueType.setBounds(350,10,150,30);
 		panel.add(lblClueType);
 		
 		JRadioButton rdoAnagram = new JRadioButton("Anagram");
 		rdoAnagram.setSelected(true);
-		rdoAnagram.setBounds(400,40,150,30);
+		rdoAnagram.setBounds(350,40,80,30);
 		panel.add(rdoAnagram);
 		
 		JRadioButton rdoDictionary = new JRadioButton("Dictionary");
-		rdoDictionary.setBounds(400,65,150,30);
+		rdoDictionary.setBounds(350,65,100,30);
 		panel.add(rdoDictionary);
 		
 		ButtonGroup grpClueType = new ButtonGroup();
@@ -93,11 +92,11 @@ public class GUI {
 		grpClueType.add(rdoDictionary);
 		
 		JLabel lblLetter = new JLabel("Letter to Load:");
-		lblLetter.setBounds(400,120,150,30);
+		lblLetter.setBounds(450,10,140,30);
 		panel.add(lblLetter);
 		
 		JTextField tfLetter = new JTextField();
-		tfLetter.setBounds(400, 150, 30, 30);
+		tfLetter.setBounds(475, 45, 30, 30);
 		panel.add(tfLetter);
 		
 		JTextField tfClue = new JTextField();
@@ -107,6 +106,10 @@ public class GUI {
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(10,180,75,20);
 		panel.add(btnSubmit);
+		
+		JButton btnCheckProb = new JButton("Check Probability");
+		btnCheckProb.setBounds(320, 155,160,20);
+		panel.add(btnCheckProb);
 		
 		JButton btnLoad = new JButton("Load Corpus");
 		btnLoad.setBounds(180,180,120,20);
@@ -168,6 +171,30 @@ public class GUI {
 					e.printStackTrace();
 				}
 				
+			}
+		});
+		
+		btnCheckProb.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				String theSentence = tfClue.getText();
+				
+				if(chkRemoveFromClue.isSelected()){
+					try {
+						Sngram.setClue(theSentence);
+						Sngram.fixClue(theSentence);
+						theSentence = Sngram.getClue();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				double occ = Sngram.calcProbability(theSentence);
+				
+				System.out.println(occ + " " + theSentence);
+
 			}
 		});
 

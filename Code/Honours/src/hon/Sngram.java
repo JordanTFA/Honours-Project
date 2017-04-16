@@ -64,13 +64,16 @@ public class Sngram {
 	
 	public static void queryAnagram(Boolean removeWordsFromClue) throws IOException{
 		
-		
 		if(removeWordsFromClue){
 			fixClue(getClue());	
 		}
 		
 		AnagramIndicators ai = new AnagramIndicators();
 		AnagramIndicators.appendIndicator(getClue());
+	}
+	
+	public static void queryProbability(String theSentence){
+		
 	}
 	
 	public static void queryDictionary(Boolean removeWordsFromClue, String letter) throws IOException{
@@ -86,17 +89,21 @@ public class Sngram {
 	// Read in the text file of the corpus
 	public static String readFile() throws IOException{
 		
+		
+		// getCorpus() finds the desired corpus, selected by the user
 		s = new FileInputStream("src\\corpora\\" + getCorpus() + ".txt");
 		r = new InputStreamReader(s);
 		
 		int data = r.read();
 		
+		// Iterate through the file until the entire thing is read
 		while(data != -1){
 			char c = (char) data;		
 			text += c;
 			data = r.read();			
 		}
 		
+		// Return the corpus content
 		return text;
 	}
 	
@@ -107,9 +114,12 @@ public class Sngram {
         ArrayList <String> theWords;
         ArrayList <String> theWordsTidiedUp;
         
-        words = theSentence.split(" "); // Separate into words
+        // Separate into words
+        words = theSentence.split(" "); 
         theWords = new ArrayList <String>(Arrays.asList(words));
         theWordsTidiedUp = new ArrayList<String> ();
+        
+        // Remove all punctuation and multiple spaces
         for(String word : theWords) {
                         word = word.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
                         theWordsTidiedUp.add(word);
@@ -118,51 +128,58 @@ public class Sngram {
 	}
 	
 	// Break a text into sentences
-	public static void breakIntoSentences(String para) throws IOException{
+	public static void breakIntoSentences(String text) throws IOException{
 		
         String theSentence = "";
         ArrayList<String> words = new ArrayList<String>();
         
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.UK);
 
-        iterator.setText(para);
+        iterator.setText(text);
         int start = iterator.first();
         
+        // Split the corpus into sentences
+        // Extract the information from each sentence, add it to the tree
+        // Then move onto the next sentence 
+        // Sentences are not held after they are used to save memory
         for(int end = iterator.next(); end != BreakIterator.DONE; start = end, end = iterator.next()){
-        	theSentence = para.substring(start, end);
+        	theSentence = text.substring(start, end);
         	theSentence = theSentence.replaceAll("\n", " ");
         	theSentence = theSentence.replaceAll("[^A-Za-z0-9 ]", "");
         	theSentence = theSentence.replaceAll("\\s+", " ");
 
+        	// Break the sentence into words
             words = breakIntoWords(theSentence);  //separate into words
             
+            // if removeUnwanted is true, remove unwanted words
     		if(removeUnwanted){
     			words = removeUnwantedWords(words);
     		}
         	
-    		// if unigrams = true
+    		// if unigrams is true, calculate the unigrams
     		if(unigrams){
     			calcUnigrams(words);
     		}		
     		
-    		// if bigrams = true
+    		// if bigrams is true, calculate the SBigrams
     		if(bigrams){
     			calcBigrams(words);
     		}
         }
         
-        // Display counts to console
-        writeToFile();
-		
+        // Write the results to a file
+        writeToFile();	
 	}
 
 	// Calculate the unigrams (Occurrences of each word)
 	public static void calcUnigrams(ArrayList<String> words){
 		
 	    for (String s : words) {
+	    	// Unigram exists - update count
 	        if (unigramCounts.containsKey(s)) {
 	        	unigramCounts.put(s, unigramCounts.get(s) + 1);
 	        } else {
+	        	// Unigram doesn't exist - create new branch with value of 1
 	            unigramCounts.put(s, 1.0);
 	        }
 	    }
@@ -208,24 +225,28 @@ public class Sngram {
 		}
 	}
 
-	// Remove unwanted words (using Unwanted words.txt
+	// Remove unwanted words using Unwanted words.txt
 	public static ArrayList<String> removeUnwantedWords(ArrayList<String> words) throws IOException{
 		
+		// Load the list of unwanted 
 		br = new BufferedReader(new FileReader("src\\res\\Unwanted words.txt"));
 		
 	    String line;
 	    
-	    
+	    // For each word in the list
 	    while ((line = br.readLine()) != null) {
 
+	    	// For each word in the sentence
 	    	for(int i = 0; i < words.size(); i++){
 	    		
+	    		// If the words match, remove the word from the sentence
 	    		if(words.get(i).equals(line)){
 	    			words.remove(i);
 	    		}
 	    	}
 	    }
 		
+	    // return the sentence with words removed
 		return words;
 	}
 	
@@ -233,6 +254,8 @@ public class Sngram {
 		ArrayList<String> clueInWords = new ArrayList<String>();
 		clueInWords = breakIntoWords(getClue());
 		clueInWords = removeUnwantedWords(clueInWords);
+		
+		fixedClue = "";
 		
 		for(int i = 0; i < clueInWords.size(); i++){
 			
