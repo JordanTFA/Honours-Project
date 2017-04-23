@@ -9,6 +9,20 @@ public class RankedClue implements Comparable {
 		setProbability(probability);
 		setText(text);
 	}
+
+	// Rank clues by score
+	public int compareTo(Object o) {
+		RankedClue theClue = (RankedClue) o;
+		
+		
+		if(this.probability < theClue.getProbability()) {
+			return 1;
+		}
+		if(this.probability == theClue.getProbability()) {
+			return -1;
+		}
+		return -1;
+	}
 	
 	public double getProbability() {
 		return this.probability;
@@ -21,19 +35,6 @@ public class RankedClue implements Comparable {
 	}
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	public int compareTo(Object o) {
-		RankedClue theClue = (RankedClue) o;
-		
-		
-		if(this.probability < theClue.getProbability()) {
-			return 1;
-		}
-		if(this.probability == theClue.getProbability()) {
-			return -1;
-		}
-		return -1;
 	}
 	
 }
