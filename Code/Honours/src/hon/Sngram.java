@@ -346,11 +346,12 @@ public class Sngram {
 		return occurrences;
 	}
 	
-	// Evalulate the probability of the sentence and assign a value
+	// Evaluate the probability of the sentence and assign a value
 	public static double calcProbability(String theSentence){
 		
 		ArrayList<String> words = new ArrayList<String>();
 		
+		// Break sentence into words
 		words = breakIntoWords(theSentence);
 		
 		double occ = 0;
